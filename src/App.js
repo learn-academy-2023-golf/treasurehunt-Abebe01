@@ -17,6 +17,8 @@ const App = () => {
 
   const [treasureLocation, setTreasureLocation] = useState(Math.floor(Math.random() * board.length))
   const [bombLocation, setBombLocation] = useState(Math.floor(Math.random() * board.length))
+  const [guessesRemaining, setGuessesRemaining] = useState(5); 
+
 
   console.log("treasure:", treasureLocation)
   console.log("bomb:", bombLocation)
@@ -32,6 +34,7 @@ const App = () => {
       setBoard(updatedBoard)
     } else {
       updatedBoard[index] = "🌴"
+      setGuessesRemaining(guessesRemaining - 1);
       setBoard(updatedBoard)
     }
   }
@@ -45,7 +48,8 @@ const App = () => {
 
   return (
     <>
-      <h1>Treasure Hunt Game</h1>
+      <h1>☠️One Piece Treasure Hunt Game☠️</h1>
+      <h2>Grab your Crew & Find the One Piece!🏴‍☠️</h2>
       <div className="gameboard"> 
         {board.map((value, index) => {
           return (
